@@ -1,0 +1,831 @@
+<div class="tab-content">
+                            <div class="tab-pane fade show active" id="navs-justified-invoice" role="tabpanel">
+                                <style>
+    .invoice {
+        font-size: 12px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    #doc-target {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfinvoice()">Download PDF</button>
+<div id="outer">
+    <div id="doc-target">
+        <hr><table width="100%" class="table table-borderless invoice judul">
+            <tbody><tr>
+                <td colspan="2" class="p-2" style=" background-color: #c65911;">
+                </td>
+            </tr>
+            <tr>
+                <td class="p-0"><img src="assets/img/logo/pandawalima/Picture1.jpg"></td>
+                <td class="p-0" style="text-align:right; margin:0px auto 0px auto;">
+                    <strong style="font-size: 28px;">INVOICE </strong><br>
+                    <strong style="font-size: 16px;">No : PL1686579692749 </strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="p-0">
+                    <hr style="border: 2px solid #000;">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="p-2">
+                    <table style="width: 100%;" class="">
+                        <tbody><tr>
+                            <td width="35%"><b>Dari:</b></td>
+                            <td width="30%"><b>Kepada:</b></td>
+                            <td width="30%"><b>Tanggal:</b></td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                CV. Pandawa Lima Group <br>
+                                JL Sandu RT 05/02 Rancabuaya Kec. Jambe Kab. Tangerang <br>
+                                Telp : 0858-1924-1149
+                            </td>
+                            <td valign="top">SDN JAMBE I</td>
+                            <td valign="top">Monday, 12 June 2023</td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+            
+        </tbody></table>
+
+        <table width="100%" style="margin-top:20px;" class="table table-bordered invoice">
+            <tbody><tr style=" background-color: #c65911; color:black; font-size:12px;">
+                <td bgcolor="#8eaadb">NO</td>
+                <td bgcolor="#8eaadb">Nama Barang / Jasa</td>
+                <td bgcolor="#8eaadb">Qty</td>
+                <td bgcolor="#8eaadb"> Satuan</td>
+                <td bgcolor="#8eaadb">Harga</td>
+                <td colspan="4" bgcolor="#8eaadb">Jumlah</td>
+            </tr>
+                            <tr style="border: solid 1px #000;" class="py-1">
+                    <td style="border: solid 1px #000;" class="py-1">1</td>
+                    <td style="border: solid 1px #000;" class="py-1">ONBLOK</td>
+                    <td style="border: solid 1px #000;" class="py-1">115</td>
+                    <td style="border: solid 1px #000;" class="py-1">PCS</td>
+                    <td style="border: solid 1px #000;" class="py-1">Rp 5,600</td>
+                    <td colspan="4" style="border: solid 1px #000;" class="py-1"> Rp 644,000 </td>
+                </tr>
+                        <tr>
+
+                <td colspan="5" align="right" style="border: solid 1px #000;" class="py-1">TOTAL</td>
+                <td colspan="4" style="border: solid 1px #000;" class="py-1"> Rp 644,000 </td>
+
+            </tr>
+        </tbody></table>
+
+        <table width="30%" style="margin-top:20px;" class="">
+            <tbody><tr>
+                <td align="center">
+                    Hormat Kami,
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <b>Maman</b>
+                    <hr style="border: 1px solid #000;" class="p-0 m-0">
+                    <b>CV. Pandawa Lima Group</b>
+                </td>
+            </tr>
+        </tbody></table>
+        <table class="table table-borderless">
+            <tbody><tr>
+                <td class="6"></td>
+            </tr>
+            <tr>
+                <td colspan="0" style="border: solid 1px #000; color: #000; font-size:12px;">
+                    * Harga sudah termasuk PPN<br>
+                    * Pembayaran untuk Invoice ini mohon ditrasfer ke rekening :<br>
+                    Bank BJB No Rek. 0113156910001 <br>
+                    An : CV. Pandawa Lima Group                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfinvoice() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('PL1686579692749_INVOICE_SDN JAMBE I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                            <div class="tab-pane fade" id="navs-justified-spo" role="tabpanel">
+                                <style>
+    .spo {
+        font-size: 12px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    #doc-target-spo {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer-spo {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfspo()">Download PDF</button>
+<div id="outer-spo">
+    <div id="doc-target-spo">
+        <table width="100%" class="table table-borderless invoice judul">
+            <tbody><tr>
+                <td class="p-0"><img src="assets/img/logo/pandawalima/Picture1.jpg"> </td>
+                <td align="left" class="p-2" halign="bottom">
+                    <strong style="font-size: 16px;">CV. Pandawa Lima Group <br> JL Sandu RT 05/02 Rancabuaya Kec. Jambe Kab. Tangerang<br>Telp : 0858-1924-1149</strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="p-0">
+                    <hr style="border: 2px solid #000;">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-size:14px;" class="p-2">
+                    <table class="table table-borderless" style="width:100%; font-weight: bold;">
+                        <tbody><tr>
+                            <td class="px-0 py-1 text-dark">hal</td>
+                            <td class="px-0 py-1 text-dark">:</td>
+                            <td class="px-0 py-1 text-dark">Penawaran Barang</td>
+                            <td class="px-0 py-1 text-dark"></td>
+                            <td class="px-0 py-1 text-dark"><b>Tanggal</b></td>
+                            <td class="px-0 py-1 text-dark"></td>
+                        </tr>
+                        <tr>
+                            <td class="px-0 py-1 text-dark">Nomor</td>
+                            <td class="px-0 py-1 text-dark">:</td>
+                            <td class="px-0 py-1 text-dark">PL1686579692749</td>
+                            <td class="px-0 py-1 text-dark"></td>
+                            <td class="px-0 py-1 text-dark">28 May 2023</td>
+                            <td class="px-0 py-1 text-dark"></td>
+                        </tr>
+
+                    </tbody></table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="py-0 px-1">
+                    <div class="p-0 m-1 text-dark" style="font-size: 12px; color: black;"><b> Kepada YTH </b></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="py-0 px-1">
+                    <div class="p-0 m-1" style="font-size: 12px; color: black;"><b> SDN JAMBE I</b></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="py-0 px-1">
+                    <div class="p-0 m-1" style="font-size: 12px; color: black;"> Di Tempat</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="p-1 pl-2">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="py-0 px-1" style="font-size: 12px; color: black;">
+                    <div class="p-0 m-1">Bersama ini kami CV. Pandawa Lima Group menawarkan barang kepada : <b>SDN JAMBE I</b>. Dengan perincian sebagai berikut :</div>
+                </td>
+            </tr>
+        </tbody></table>
+
+        <table width="100%" style="margin-bottom:20px; " class="table table-bordered spo mb-0">
+            <tbody><tr style="background-color: #c65911; color:black;">
+                <td bgcolor="#8eaadb">Nama Barang</td>
+                <td bgcolor="#8eaadb">Qty</td>
+                <td bgcolor="#8eaadb">Satuan</td>
+                <td bgcolor="#8eaadb">Harga</td>
+                <td bgcolor="#8eaadb">Jumlah</td>
+            </tr>
+                            <tr>
+                    <td style="border: solid 1px #000;" class="py-1">ONBLOK</td>
+                    <td style="border: solid 1px #000;" class="py-1">115</td>
+                    <td style="border: solid 1px #000;" class="py-1">PCS</td>
+                    <td style="border: solid 1px #000;" class="py-1">Rp 5,600</td>
+                    <td colspan="4" style="border: solid 1px #000;" class="py-1"> Rp 644,000 </td>
+                </tr>
+                        <tr>
+                <td colspan="4" align="right" style="border: solid 1px #000;" class="py-1">TOTAL</td>
+                <td colspan="5" style="border: solid 1px #000;" class="py-1"> Rp 644,000 </td>
+            </tr>
+        </tbody></table>
+        <table width="30%" style="margin-top:20px;" class="">
+            <tbody><tr>
+                <td align="center">
+                    Hormat Kami,
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <b>Maman</b>
+                    <hr style="border: 1px solid #000;" class="p-0 m-0">
+                    <b>CV. Pandawa Lima Group</b>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfspo() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target-spo');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('PL1686579692749_SPO_SDN JAMBE I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                            <div class="tab-pane fade" id="navs-justified-spk" role="tabpanel">
+                                <style>
+    .spk {
+        font-size: 13px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    table.table-bordered {
+        border: 1px solid black !important;
+    }
+
+    table.table-bordered {
+        border: 1px solid black !important;
+        padding: 5px;
+    }
+
+    table.table-bordered>tr>td {
+        border: 1px solid black !important;
+        padding: 2px;
+    }
+
+    #doc-target-spk {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer-spk {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfspk()">Download PDF</button>
+<div id="outer-spk">
+    <div id="doc-target-spk">
+        <table width="100%" class="table table-borderless invoice judul">
+            <tbody><tr>
+                <td class="p-0"><img src="assets/img/logo/pandawalima/Picture1.jpg"> </td>
+                <td align="left" class="p-2" halign="bottom">
+                    <strong style="font-size: 16px;">CV. Pandawa Lima Group <br> JL Sandu RT 05/02 Rancabuaya Kec. Jambe Kab. Tangerang<br>Telp : 0858-1924-1149</strong>
+                </td>
+            </tr>
+        </tbody></table>
+        <table width="100%" style=" color:black;" class="table table-bordered spk">
+            <tbody><tr style="border:1px solid #000;">
+                <td rowspan="3" align="center" style="font-size:15px; border:1px solid #000;" class="py-1"><strong>Surat Pemesanan</strong></td>
+                <td colspan="3" align="center" class="py-1"><strong>Nama Sekolah</strong></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center" style="border:1px solid #000;" class="py-1"><strong>SDN JAMBE I</strong></td>
+            </tr>
+            <tr style="border:1px solid #000;">
+                <td style="border:1px solid #000;" class="py-1">Nomor Pesanan : </td>
+                <td colspan="2" style="border:1px solid #000;" class="py-1">PL1686579692749</td>
+            </tr>
+            <tr style="border:1px solid #000;">
+                <td style="border:1px solid #000;" class="py-1">Tanggal Pesanan</td>
+                <td colspan="3" style="border:1px solid #000;" class="py-1">
+                    Friday, 02 June 2023                </td>
+            </tr>
+            <tr style="border:1px solid #000;">
+                <td style="border:1px solid #000;" class="py-1">Waktu Pelaksanaan Pekerjaan </td>
+                <td colspan="3" style="border:1px solid #000;" class="py-1">
+                    03 June 2023                </td>
+            </tr>
+            <tr style="border:1px solid #000;">
+                <td style="border:1px solid #000;" class="py-1">Penyelesaian Pekerjaan</td>
+                <td colspan="3" style="border:1px solid #000;" class="py-1">
+                    04 June 2023                </td>
+            </tr>
+            <tr style="border:1px solid #000;">
+                <td style="border:1px solid #000;" class="py-1">Nama Pekerjaan:</td>
+                <td colspan="3" style="border:1px solid #000;" class="py-1">: Kegiatan jual beli </td>
+            </tr>
+            <tr style="border:1px solid #000;">
+                <td style="border:1px solid #000;" class="py-1">Pelaksana Pekerjaan </td>
+                <td colspan="3" style="border:1px solid #000;" class="py-1">: CV. Pandawa Lima Group</td>
+            </tr>
+            <tr style="border:1px solid #000;">
+                <td style="border:1px solid #000;" class="py-1">Penyetoran Pajak </td>
+                <td colspan="3" style="border:1px solid #000;" class="py-1">: Disetor oleh Penjual</td>
+            </tr>
+            <tr style="border:1px solid #000;">
+                <td style="border:1px solid #000;" class="py-1">NPWP</td>
+                <td colspan="3" style="border:1px solid #000;" class="py-1">: 96.471.110.5-452</td>
+            </tr>
+            <tr style="border:1px solid #000;">
+                <td colspan="4" align="center" style="border:1px solid #000;" class="py-1"><strong>
+                        <h5 style="color:#000;" class="py-1"><u>Rincian Pekerjaan</u></h5>
+                    </strong></td>
+            </tr>
+        </tbody></table>
+
+        <table width="100%" style="margin-bottom:20px; " class="table table-bordered spk">
+            <tbody><tr style="background-color: #c65911; color:black;">
+                <td>Nama Barang</td>
+                <td>Qty</td>
+                <td>Satuan</td>
+                <td>Jumlah</td>
+            </tr>
+                            <tr>
+                    <td>ONBLOK</td>
+                    <td>115</td>
+                    <td>PCS</td>
+                    <td colspan="4"> Rp 644,000 </td>
+                </tr>
+                    </tbody></table>
+        <table class=" text-dark">
+            <tbody><tr>
+                <td colspan="5">Penagihan hanya dapat dilakukan setelah penyelesaian pekerjaan yang diperintahkan dalam surat pemesanan ini dan dibuktikan dengan Berita Acara Serah Terima</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody></table>
+        <table width="100%" class="spo mt-2">
+            <tbody><tr style="font-size:12px;">
+                <td class="text-center">
+                    <p class="m-0">CV. Pandawa Lima Group</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:14px"><b><u>Maman</u></b></p>
+                </td>
+                <td class="text-center">
+                    <p class="m-0">SDN JAMBE I</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:14px"><b>______________________</b></p>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfspk() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target-spk');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('PL1686579692749_SPO_SDN JAMBE I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                            <div class="tab-pane fade" id="navs-justified-bast" role="tabpanel">
+                                <style>
+    table {
+        font-size: 12px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    #doc-target-bast {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer-bast {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfbast()">Download PDF</button>
+<div id="outer-bast">
+    <div id="doc-target-bast">
+        <table class="table table-borderless">
+            <tbody><tr>
+                <td colspan="6" align="center">
+                    <img src="assets/img/logo/pandawalima/Picture1.jpg"><br>
+                    <p style="font-size:14px; color: black;" class="my-0">CV. Pandawa Lima Group</p>
+                    <p style="font-size:14px; color: black;" class="my-0">JL SANDU RT 05 RW 02 RANCA BUAYA KEC. JAMBE 0858-1924-1149</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" align="center" class="p-0 m-0">
+                    <strong>
+                        <h5 class="text-dark"><b><u>BERITA ACARA SERAH TERIMA</u></b></h5>
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" align="center" class="p-0 m-0">
+                    <hr class="bg-dark" style="border-top: 2px solid #000;">
+                </td>
+            </tr>
+        </tbody></table>
+        <table>
+            <tbody><tr>
+                <td colspan="3"></td>
+                <td></td>
+                <td class="p-0">
+                    <table class="" width="40%" style="font-size:12px; color:black; text-align:right; margin:0px auto 0px auto;" "="">
+                        <tbody><tr>
+                            <td class=" py-1">Tanggal
+                </td>
+                <td class="py-1">:</td>
+                <td class="py-1">Wed, 07 June 2023</td>
+            </tr>
+            <tr>
+                <td class="py-1">Nomor</td>
+                <td class="py-1">:</td>
+                <td class="py-1">PL1686579692749</td>
+            </tr>
+        </tbody></table>
+        </td>
+        </tr>
+        <tr>
+            <td colspan="6" style="font-size:12px; color:black;" class="py-1">
+                Yang bertanggung jawab di bawah ini :
+            </td>
+        </tr>
+        <tr>
+            <td width="141" style="font-size:12px; color:black; padding-left: 30px;" class="py-1">Nama</td>
+            <td width="3" style="font-size:12px; color:black; padding-left: 30px;" class="py-1">:</td>
+            <td width="929" colspan="3" style="font-size:12px; color:black;" class="py-1">Maman</td>
+        </tr>
+        <tr>
+            <td width="141" style="font-size:12px; color:black; padding-left: 30px;" class="py-1">Jabatan</td>
+            <td width="3" style="font-size:12px; color:black; padding-left: 30px;" class="py-1">:</td>
+            <td width="929" colspan="3" style="font-size:12px; color:black;" class="py-1">Direktur</td>
+        </tr>
+        <tr>
+            <td colspan="6" class="p-1">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <div style="font-size:12px; color:black;">Menyerahkan hasil pekerjaan pengiriman barang atas kegiatan jual-beli melalui Mitra kepada Sekolah telah menerima hasil pekerjaan tersebut dalam jumlah yang <b>lengkap dan kondisi yang baik</b> sesuai dengan rincian berikut :</div>
+            </td>
+        </tr>
+        </tbody></table>
+
+        <table class="table table-bordered">
+            <tbody><tr style="background-color: #c65911; color:black;" class="text-dark" align="center">
+                <td scope="col">Nama Barang</td>
+                <td scope="col">Qty</td>
+                <td scope="col">Satuan</td>
+                <td scope="col">Harga</td>
+                <td scope="col">Kondisi</td>
+            </tr>
+                            <tr>
+                    <td style="border: solid 1px #000; color:black;" class="py-1">ONBLOK</td>
+                    <td style="border: solid 1px #000; color:black;" class="py-1">115</td>
+                    <td style="border: solid 1px #000; color:black;" class="py-1">PCS</td>
+                    <td style="border: solid 1px #000; color:black;" class="py-1"> Rp 5,600 </td>
+                    <td style="border: solid 1px #000; color:black;" class="py-1">BAIK</td>
+                </tr>
+                    </tbody></table>
+
+        <table class="">
+            <tbody><tr>
+                <td colspan="6">
+                    <br>
+                    Berita Acara Serah Terima ini berfungsi sebagai bukti serah terima hasil pekerjaan kepada Sekolah untuk selanjutnya dicatat pada buku penerimaan barang <br>
+                    Demikian Berita Acara Serah Terima ini dibuat dengan sebenarnya untuk dipergunakan sebagaimana seharusnya
+                </td>
+            </tr>
+
+        </tbody></table>
+        <table class="table table-borderless">
+            <tbody><tr style="font-size:12px; color:#000;">
+                <td class="text-center">
+                    <p class="m-0">Penyedia</p>
+                    <p class="m-0">CV. Pandawa Lima Group</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:14px"><b>Maman</b></p>
+                </td>
+                <td class="text-center">
+                    <p class="m-0">Pelaksana</p>
+                    <p class="m-0">SDN JAMBE I</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:14px"><b>(________________________)</b></p>
+                </td>
+
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfbast() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target-bast');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('PL1686579692749_BAST_SDN JAMBE I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                            <div class="tab-pane fade" id="navs-justified-kwitansi" role="tabpanel">
+                                <style>
+    .kwitansi {
+        font-size: 12px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+        border: 1px solid black !important;
+    }
+
+    #doc-target-kwitansi {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer-kwitansi {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+
+    .parallelogram {
+        width: 100%;
+        height: 45px;
+        transform: skew(20deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        border: 2px solid black;
+        transform: skew(0deg);
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfkwitansi()">Download PDF</button>
+<div id="outer-kwitansi">
+    <div id="doc-target-kwitansi">
+        <table width="100%" class="table table-borderless kwitansi">
+            <tbody><tr>
+                <td colspan="6" align="center">
+                    <img src="assets/img/logo/pandawalima/Picture1.jpg"><br>
+                    <p style="font-size:14px; color: black;" class="my-0">CV. Pandawa Lima Group</p>
+                    <p style="font-size:14px; color: black;" class="my-0">JL SANDU RT 05 RW 02 RANCA BUAYA KEC. JAMBE 0858-1924-1149</p>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3" style="background-color: #c65911;">
+                    <h5 class="p-0 text-dark"><b>
+                            <u>KWITANSI</u> <br> No : PL1686579692749                        </b>
+                    </h5>
+
+                </td>
+            </tr>
+        </tbody></table>
+        <table width="100%" class="table table-borderless kwitansi">
+            <tbody><tr style=" font-size: 12px; font-weight: bold;">
+                <td width="28%"><i>Telah terima dari :</i></td>
+                <td width="67%" colspan="2"><i>SDN JAMBE I</i></td>
+            </tr>
+            <tr style="font-size: 12px; font-weight: bold;">
+                <td><i>Uang sejumlah :</i></td>
+                <td colspan="2"><i>Enam Ratus Empat Puluh Empat Ribu Rupiah</i></td>
+            </tr>
+            <tr style="font-size: 12px; font-weight: bold;">
+                <td><i>Pembayaran untuk :</i></td>
+                <td colspan="2"><i>Kontruksi</i></td>
+            </tr>
+
+            <tr>
+                <td colspan="5" class="p-0">
+                    <div class="parallelogram">
+                        Rp 644,000                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+        <table width="100%" class="table table-borderless kwitansi">
+            <tbody><tr>
+                <td style="text-align: center;" colspan="6" class="p-2"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" colspan="4">Mengetahui</td>
+                <td style="text-align: center;" colspan="2">Tangerang, .............................</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" colspan="2">Kepala Sekolah <br> <b> SDN JAMBE I</b></td>
+                <td style="text-align: center;" colspan="2">Bendahara</td>
+                <td style="text-align: center;" colspan="2"><b>CV. Pandawa Lima Group</b></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" colspan="2">_________________</td>
+                <td style="text-align: center;" colspan="2">_________________</td>
+                <td style="text-align: center;" colspan="2"><u><b>Maman</b></u></td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfkwitansi() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target-kwitansi');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('PL1686579692749_KWITANSI_SDN JAMBE I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                        </div>

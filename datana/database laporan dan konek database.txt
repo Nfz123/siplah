@@ -1,0 +1,53 @@
+<table class="table text-nowrap">
+                <thead>
+                    <tr>
+                        <th>Nomor Invoice</th>
+                        <th>Nama Sekolah</th>
+                        <th>Nominal</th>
+                        <th>PPN</th>
+                        <th>Cashback</th>
+                        <th>biaya Admin</th>
+                        <th>Potongan</th>
+                        <th>Total titipan</th>
+                        <th>Harga Dasar</th>
+                        <th>Margin</th>
+                        <th>Status</th>
+                        <th>Pembayaran</th>
+                        <th>Perusahaan</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0" style="font-size: 16px;">
+                    @foreach ($transaksi as $trans)
+                    <tr>
+                      <td><a href="#" class="col-sm-2 col-form-label">{{$trans->autonumber}}</a></td>
+                      <td>{{$trans->Sekolah->namasekolah}}</td>
+                      <td>
+                        {{$formattedAmount = number_format(($trans->totalinvoice), 0, ',', '.')}}
+                      </td>
+                      <td>{{$trans->ppn}}</td>
+                      <td>{{$trans->cashback</td>
+                      <td>{{$trans->biayaadmin}}</td>
+                      <td>{{$trans->potongan}}</td>
+                      <td>{{$trans->ttitipan}}</td>
+                      <td>
+                        <input type="text" class="hargadasar" name="hargadasar">
+                      </td>
+                      <td>
+                       @php
+                        $totalharga = ($trans->totalinvoice - $trans->ppn - $trans->cashback - $trans->biayaadmin - $trans->potongan - $trans->ttitipan);
+                       @endphp
+                        {{  $formattedAmount = number_format(($totalharga - $trans->hargadasar), 0, ',', '.')}}
+                      
+                      </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+              </table>
+
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=sipl1483_siplahdummy
+DB_USERNAME=sipl1483_siplahdummiuser
+DB_PASSWORD=siplahDumi1!

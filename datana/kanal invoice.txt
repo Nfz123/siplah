@@ -1,0 +1,921 @@
+<div class="tab-content">
+                            <div class="tab-pane fade show active" id="navs-justified-invoice" role="tabpanel">
+                                <style>
+    .invoice {
+        font-size: 13px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    #doc-target {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfinvoice()">Download PDF</button>
+<div id="outer">
+    <div id="doc-target">
+        <table width="100%" class="table table-borderless invoice judul">
+            <tbody><tr>
+                <td class="p-0"><img src="assets/img/logo/kanal/Picture1.png" width="200"></td>
+                <td class="p-0">
+                    <strong style="font-size: 28px;">INVOICE</strong><br>
+                </td>
+            </tr>
+            <tr>
+                <td>Photocopy Digital Printing, ATK, <br> Alat Olahraga &amp; Perlengkapan Sekolah.<br> Telp : 0819-0819-6493</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Jl. R.H. Komarudin Desa Tipar Raya, <br> Kec. Jambe Kab. Tangerang Prov. Banten </td>
+                <td class="p-0">
+                    <table class="table table-borderless p-0">
+                        <tbody><tr>
+                            <td class="p-0" style="font-size:12px; color:#000;">No</td>
+                            <td class="p-0" style="font-size:12px; color:#000;">:</td>
+                            <td class="p-0" style="font-size:12px; color:#000;">K11686749588050/1</td>
+                        </tr>
+                        <tr>
+                            <td class="p-0" style="font-size:12px; color:#000;">Tanggal</td>
+                            <td class="p-0" style="font-size:12px; color:#000;">:</td>
+                            <td class="p-0" style="font-size:12px; color:#000;">14 June 2023</td>
+                        </tr>
+                        <tr>
+                            <td class="p-0" style="font-size:12px; color:#000;">NPWP</td>
+                            <td class="p-0" style="font-size:12px; color:#000;">:</td>
+                            <td class="p-0" style="font-size:12px; color:#000;">61.756.622.9-451</td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="p-0">
+                    <hr style="border: 2px solid #000;">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-size:12px;" class="p-0">
+                    Tagihan Kepada : <br>
+                    Satuan Pendidikan <br>
+                    <strong>SDN KUTRUK I</strong> <br>
+                </td>
+            </tr>
+        </tbody></table>
+
+        <table width="100%" style="margin-top:20px; border: solid 1px #000;" class="table table-bordered invoice">
+            <tbody><tr style=" background-color: #ffc000; color:black; font-size:12px; ">
+                <td bgcolor="#8eaadb" style="border: solid 1px #000;" class="py-1">NO</td>
+                <td bgcolor="#8eaadb" style="border: solid 1px #000;" class="py-1">Nama Barang / Jasa</td>
+                <td bgcolor="#8eaadb" style="border: solid 1px #000;" class="py-1">Qty</td>
+                <td bgcolor="#8eaadb" style="border: solid 1px #000;" class="py-1"> Satuan</td>
+                <td bgcolor="#8eaadb" style="border: solid 1px #000;" class="py-1">Harga</td>
+                <td colspan="4" bgcolor="#8eaadb" style="border: solid 1px #000;">Jumlah</td>
+            </tr>
+                            <tr style="border: solid 1px #000;">
+                    <td style="border: solid 1px #000;" class="py-1">1</td>
+                    <td style="border: solid 1px #000;" class="py-1">atk</td>
+                    <td style="border: solid 1px #000;" class="py-1">1</td>
+                    <td style="border: solid 1px #000;" class="py-1">2</td>
+                    <td style="border: solid 1px #000;" class="py-1">Rp 200,000</td>
+                    <td colspan="4" style="border: solid 1px #000;" class="py-1"> Rp 200,000 </td>
+                </tr>
+                            <tr style="border: solid 1px #000;">
+                    <td style="border: solid 1px #000;" class="py-1">2</td>
+                    <td style="border: solid 1px #000;" class="py-1"></td>
+                    <td style="border: solid 1px #000;" class="py-1">0</td>
+                    <td style="border: solid 1px #000;" class="py-1"></td>
+                    <td style="border: solid 1px #000;" class="py-1">Rp </td>
+                    <td colspan="4" style="border: solid 1px #000;" class="py-1"> Rp 0 </td>
+                </tr>
+                        <tr>
+                <td colspan="5" align="right" style="border: solid 1px #000;" class="py-1">TOTAL</td>
+                <td colspan="4" style="border: solid 1px #000;" class="py-1"> Rp 200,000 </td>
+            </tr>
+        </tbody></table>
+
+        <table width="100%" style="margin-top:20px;" class=" invoice">
+            <tbody><tr>
+                <td colspan="5" class="p-0"><i>* Transaksi antar bank akan dikenakan biaya transfer</i></td>
+            </tr>
+            <tr>
+                <td colspan="5" class="p-0"><i>* Harga sudah termasuk PPN</i></td>
+            </tr>
+            <tr>
+                <td colspan="5" class="p-2"></td>
+            </tr>
+            <tr>
+                <td style="font-size:18px;" colspan="5"><b><u>Transactions</u> </b></td>
+            </tr>
+            <tr>
+                <td style="font-size:18px; color: black;" colspan="5">
+                    <table style="width:50%; font-weight: bold; border:solid 1px #000; font-size: 12px;" class="p-2">
+                        <tbody><tr>
+                            <td class="py-1 px-2">Nomor rekening</td>
+                            <td class="">:</td>
+                            <td class="">176-00-0320937-4</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 px-2">Atas nama rekening</td>
+                            <td class="">:</td>
+                            <td class="">Kanal Shop Solution</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 px-2">Nama Bank</td>
+                            <td class="">:</td>
+                            <td class="">Bank Mandiri</td>
+                        </tr>
+                    </tbody></table>
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="5" class="p-2">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    Hormat Kami,
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <b>Omay Sunarti, Amd.Kom</b>
+                </td>
+            </tr>
+
+        </tbody></table>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfinvoice() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('K11686749588050/1_INVOICE_SDN KUTRUK I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                            <div class="tab-pane fade" id="navs-justified-spo" role="tabpanel">
+                                <style>
+    .spo {
+        font-size: 13px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+
+    #doc-target-spo {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer-spo {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfspo()">Download PDF</button>
+<div id="outer-spo">
+    <div id="doc-target-spo">
+        <table width="100%" class="table table-borderless invoice judul">
+            <tbody><tr>
+                <td class="p-2">
+                    <strong style="font-size: 23px;">PT. KANAL SHOP SOLUTION</strong>
+                </td>
+                <td rowspan="3" class="p-0"><img src="assets/img/logo/kanal/Picture1.png" width="300"> </td>
+            </tr>
+            <tr>
+                <td class="p-2">Photocopy Digital Printing, ATK, <br> Alat Olahraga &amp; Perlengkapan Sekolah <br> Telp : 0819-0819-6493</td>
+            </tr>
+            <tr>
+                <td class="p-2">Jl. R.H. Komarudin Desa Tipar Raya, <br> Kec. Jambe Kab. Tangerang Prov. Banten </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="p-0">
+                    <hr style="border: 2px solid #000;">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-size:14px;" class="p-2">
+                    <table class="table table-borderless" style="width:50%; color: #000; font-size:12px;">
+                        <tbody><tr>
+                            <td class="px-0 py-1">Nomor</td>
+                            <td class="px-0 py-1">:</td>
+                            <td class="px-0 py-1">K11686749588050/1</td>
+                        </tr>
+                        <tr>
+                            <td class="px-0 py-1">Lampiran</td>
+                            <td class="px-0 py-1">:</td>
+                            <td class="px-0 py-1">Brosur Penawaran Barang</td>
+                        </tr>
+                        <tr>
+                            <td class="px-0 py-1">hal</td>
+                            <td class="px-0 py-1">:</td>
+                            <td class="px-0 py-1">Penawaran Barang</td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="py-0 px-1">
+                    <div class="p-0 m-1" style="font-size:12px; color: #000;"> Kepada YTH</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="py-0 px-1">
+                    <div class="p-0 m-1" style="font-size:12px; color: #000;"> SDN KUTRUK I</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="py-0 px-1">
+                    <div class="p-0 m-1" style="font-size:12px; color: #000;"> Di Tempat</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="p-1 pl-2">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="py-0 px-1">
+                    <h6 class="p-0 m-1" style="font-size:12px; color: #000;"> Dengan Hormat,</h6>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="py-0 px-1">
+                    <div class="p-0 m-1">Bersama ini kami PT. Kanal Shop Solution menawarkan barang kepada : <b>SDN KUTRUK I</b>. Dengan perincian sebagai berikut : </div>
+                </td>
+            </tr>
+        </tbody></table>
+
+        <table width="100%" style="margin-bottom:20px; " class="table table-bordered spo mb-0">
+            <tbody><tr style="background-color: #ffc000; color:black;">
+                <td bgcolor="#8eaadb">Nama Barang</td>
+                <td bgcolor="#8eaadb">Qty</td>
+                <td bgcolor="#8eaadb">Satuan</td>
+                <td bgcolor="#8eaadb">Harga</td>
+                <td bgcolor="#8eaadb">Jumlah</td>
+            </tr>
+                            <tr style="border: solid 1px #000;">
+                    <td style="border: solid 1px #000;" class="py-1">atk</td>
+                    <td style="border: solid 1px #000;" class="py-1">1</td>
+                    <td style="border: solid 1px #000;" class="py-1">2</td>
+                    <td style="border: solid 1px #000;" class="py-1">Rp 200,000</td>
+                    <td colspan="4" style="border: solid 1px #000;" class="py-1"> Rp 200,000 </td>
+                </tr>
+                            <tr style="border: solid 1px #000;">
+                    <td style="border: solid 1px #000;" class="py-1"></td>
+                    <td style="border: solid 1px #000;" class="py-1">0</td>
+                    <td style="border: solid 1px #000;" class="py-1"></td>
+                    <td style="border: solid 1px #000;" class="py-1">Rp </td>
+                    <td colspan="4" style="border: solid 1px #000;" class="py-1"> Rp 0 </td>
+                </tr>
+                        <tr>
+                <td colspan="4" align="right" style="border: solid 1px #000;" class="py-1">TOTAL</td>
+                <td colspan="5" style="border: solid 1px #000;" class="py-1"> Rp 200,000 </td>
+            </tr>
+        </tbody></table>
+        <table width="100%" class="spo table table-borderless">
+            <tbody><tr>
+                <td colspan="5" class="py-0 px-1">
+                    <div class="p-0 m-1">Demikian surat penawaran ini dibuat besar harapan bapak/ibu kepala sekolah bisa melanjutkan kerjasama ini. Terimakasih</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5"></td>
+            </tr>
+            <tr>
+                <td colspan="5" class="py-0 px-2">Hormat Kami,</td>
+            </tr>
+            <tr>
+                <td colspan="5"></td>
+            </tr>
+            <tr>
+                <td colspan="5"></td>
+            </tr>
+            <tr>
+                <td colspan="5"></td>
+            </tr>
+
+            <tr>
+                <td colspan="5" class="py-0 px-2">Omay Sunarti, Amd.Kom</td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfspo() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target-spo');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('K11686749588050/1_SPO_SDN KUTRUK I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                            <div class="tab-pane fade" id="navs-justified-spk" role="tabpanel">
+                                <style>
+    .spk {
+        font-size: 13px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    #doc-target-spk {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer-spk {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfspk()">Download PDF</button>
+<div id="outer-spk">
+    <div id="doc-target-spk">
+        <table width="100%" class="table table-borderless invoice judul">
+            <tbody><tr>
+                <td class="p-2">
+                    <strong style="font-size: 23px;">PT. KANAL SHOP SOLUTION</strong>
+                </td>
+                <td rowspan="3" class="p-0"><img src="assets/img/logo/kanal/Picture1.png" width="300"> </td>
+            </tr>
+            <tr>
+                <td class="p-2">Photocopy Digital Printing, ATK, <br> Alat Olahraga &amp; Perlengkapan Sekolah <br> Telp : 0819-0819-6493</td>
+            </tr>
+            <tr>
+                <td class="p-2">Jl. R.H. Komarudin Desa Tipar Raya, <br> Kec. Jambe Kab. Tangerang Prov. Banten </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="p-0">
+                    <hr style="border: 2px solid #000;">
+                </td>
+            </tr>
+
+        </tbody></table>
+        <table width="100%" class="table table-borderless spk">
+            <tbody><tr>
+                <td colspan="4" align="center">
+                    <div style="font-size: 16px;"><b>SURAT PEMESANAN</b></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="py-1">Nomor</td>
+                <td colspan="3" class="py-1">
+                    : K11686749588050/1                </td>
+            </tr>
+            <tr>
+                <td class="py-1">Tanggal Pesanan</td>
+                <td colspan="3" class="py-1">
+                    : 04 June 2023                </td>
+            </tr>
+            <tr>
+                <td class="py-1">Waktu Pelaksanaan </td>
+                <td colspan="3" class="py-1">
+                    : 07 June 2023                </td>
+            </tr>
+            <tr>
+                <td class="py-1">Nama Pekerjaan:</td>
+                <td colspan="3" class="py-1">: Kegiatan jual beli Kebutuhan Sekolah </td>
+
+            </tr>
+            <tr>
+                <td class="py-1">Pelaksana Pekerjaan </td>
+                <td colspan="3" class="py-1">: PT. KANAL SHOP SOLUTION</td>
+            </tr>
+            <tr>
+                <td class="py-1">Penyetoran Pajak </td>
+                <td colspan="3" class="py-1">: Disetor oleh Penjual</td>
+            </tr>
+            <tr>
+                <td class="py-1">NPWP</td>
+                <td colspan="3" class="py-1">: 61.756.622.9-451</td>
+            </tr>
+            <tr>
+                <td colspan="4" align="center">
+                    <div style="font-size: 16px; color: #000;"><b>DAFTAR PENGADAAN BARANG</b></div>
+                </td>
+            </tr>
+        </tbody></table>
+
+        <table width="100%" style="margin-bottom:20px; " class="table table-bordered spk">
+            <tbody><tr style="background-color: #ffc000; color:black;">
+                <td>Nama Barang</td>
+                <td>Qty</td>
+                <td>Satuan</td>
+                <td>Jumlah</td>
+            </tr>
+                            <tr style="border: solid 1px #000;" class="py-1">
+                    <td style="border: solid 1px #000;" class="py-1">atk</td>
+                    <td style="border: solid 1px #000;" class="py-1">1</td>
+                    <td style="border: solid 1px #000;" class="py-1">2</td>
+                    <td colspan="4" style="border: solid 1px #000;" class="py-1"> Rp 200,000 </td>
+                </tr>
+                            <tr style="border: solid 1px #000;" class="py-1">
+                    <td style="border: solid 1px #000;" class="py-1"></td>
+                    <td style="border: solid 1px #000;" class="py-1">0</td>
+                    <td style="border: solid 1px #000;" class="py-1"></td>
+                    <td colspan="4" style="border: solid 1px #000;" class="py-1"> Rp 0 </td>
+                </tr>
+                    </tbody></table>
+        <table class=" text-dark">
+            <tbody><tr>
+                <td><b style="font-size:12px;">INSTRUKSI KE PENYEDIA :</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <p style="line-height: 20px; font-size: 12px; color: #000;">Penagihan hanya dapat dilakukan setelah penyelesaian pekerjaan yang diperintahkan dalam surat pemesanan ini dan dibuktikan dengan Berita Acara Serah Terima</p>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </tbody></table>
+        <table width="100%" class="spo mt-2">
+            <tbody><tr style="font-size:12px; color:#000;">
+                <td class="text-center">
+                    <p class="m-0">PT. KANAL SHOP SOLUTION</p>
+                    <p class="m-0">Direktur</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:14px"><b>Omay Sunarti, Amd.Kom</b></p>
+                </td>
+                <td class="text-center">
+                    <p class="m-0">Satuan Pendidikan</p>
+                    <p class="m-0">SDN KUTRUK I</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:14px"><b>(________________________)</b></p>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfspk() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target-spk');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('K11686749588050/1_SPO_SDN KUTRUK I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                            <div class="tab-pane fade" id="navs-justified-bast" role="tabpanel">
+                                <style>
+    table {
+        font-size: 12px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    #doc-target-bast {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer-bast {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfbast()">Download PDF</button>
+<div id="outer-bast">
+    <div id="doc-target-bast">
+        <table width="100%" class="table table-borderless invoice judul">
+            <tbody><tr>
+                <td class="p-2">
+                    <strong style="font-size: 23px;">PT. KANAL SHOP SOLUTION</strong>
+                </td>
+                <td rowspan="3" class="p-0"><img src="assets/img/logo/kanal/Picture1.png" width="300"> </td>
+            </tr>
+            <tr>
+                <td class="p-2">Photocopy Digital Printing, ATK, <br> Alat Olahraga &amp; Perlengkapan Sekolah <br> Telp : 0819-0819-6493</td>
+            </tr>
+            <tr>
+                <td class="p-2">Jl. R.H. Komarudin Desa Tipar Raya, <br> Kec. Jambe Kab. Tangerang Prov. Banten </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="p-0">
+                    <hr style="border: 2px solid #000;">
+                </td>
+            </tr>
+
+        </tbody></table>
+        <table class="">
+            <tbody><tr>
+                <td colspan="6" align="center">
+                    <strong>
+                        <div class="text-dark" style="font-size:16px; color:black;"><u><b>BERITA ACARA SERAH TERIMA</b></u></div>
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" style="font-size:12px; color:black;" class="py-1">
+                    Yang bertanggung jawab di bawah ini :
+                </td>
+            </tr>
+            <tr>
+                <td width="141" style="font-size:12px; color:black; padding-left: 30px;" class="py-1">Nama</td>
+                <td width="3" style="font-size:12px; color:black; padding-left: 30px;" class="py-1">:</td>
+                <td width="929" colspan="3" style="font-size:12px; color:black;" class="py-1">Omay Sunarti, Amd.Kom</td>
+            </tr>
+            <tr>
+                <td width="141" style="font-size:12px; color:black; padding-left: 30px;" class="py-1">Jabatan</td>
+                <td width="3" style="font-size:12px; color:black; padding-left: 30px;" class="py-1">:</td>
+                <td width="929" colspan="3" style="font-size:12px; color:black;" class="py-1">Direktur</td>
+            </tr>
+            <tr>
+                <td colspan="3" style="font-size:12px; color:black;" class="py-1">Pada hari ini</td>
+                <td style="font-size:12px; color:black;" class="py-1">:</td>
+                <td style="font-size:12px; color:black;" class="py-1">
+                    Friday, 09 June 2023                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="font-size:12px; color:black;" class="py-1">Sesuai dengan No. Pesanan yang diterbitkan oleh sekolah</td>
+                <td style="font-size:12px; color:black;" class="py-1">:</td>
+                <td style="font-size:12px; color:black;" class="py-1">K11686749588050/1</td>
+            </tr>
+            <tr>
+                <td colspan="6" class="p-1">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <div style="font-size:12px; color:black;">Menyerahkan hasil pekerjaan jual-beli kepada Sekolah dan telah menerima hasil pekerjaan dalam jumlah yang lengkap dan kondisi yang baik sesuai dengan rincian berikut : </div>
+                </td>
+            </tr>
+        </tbody></table>
+
+        <table class="table table-bordered">
+            <tbody><tr style="background-color: #ffc000; color:black;" class="text-dark" align="center">
+                <td scope="col">Nama Barang</td>
+                <td scope="col">Qty</td>
+                <td scope="col">Satuan</td>
+                <td scope="col">Harga</td>
+                <td scope="col">Kondisi</td>
+            </tr>
+                            <tr style="border: solid 1px #000;" class="py-1">
+                    <td style="border: solid 1px #000; color:black;" class="py-1">atk</td>
+                    <td style="border: solid 1px #000; color:black;" class="py-1">1</td>
+                    <td style="border: solid 1px #000; color:black;" class="py-1">2</td>
+                    <td style="border: solid 1px #000; color:black;" class="py-1"> Rp 200,000 </td>
+                    <td style="border: solid 1px #000; color:black;" class="py-1">BAIK</td>
+                </tr>
+                            <tr style="border: solid 1px #000;" class="py-1">
+                    <td style="border: solid 1px #000; color:black;" class="py-1"></td>
+                    <td style="border: solid 1px #000; color:black;" class="py-1">0</td>
+                    <td style="border: solid 1px #000; color:black;" class="py-1"></td>
+                    <td style="border: solid 1px #000; color:black;" class="py-1"> Rp  </td>
+                    <td style="border: solid 1px #000; color:black;" class="py-1">BAIK</td>
+                </tr>
+                    </tbody></table>
+
+        <table class="">
+            <tbody><tr>
+                <td colspan="6">
+                    <div style="font-size: 12px; color: #000;" class="my-1"><i><b>Foto Barang : Terlampir</b></i></div>
+                    Berita Acara Serah Terima ini berfungsi sebagai bukti serah terima hasil pekerjaan kepada Sekolah untuk selanjutnya dicatat pada buku penerimaan barang <br> <br>
+                    Demikian Berita Acara Serah Terima ini dibuat dengan sebenarnya untuk dipergunakan sebagaimana seharusnya
+                </td>
+            </tr>
+        </tbody></table>
+        <table width="100%" class="spo mt-2">
+            <tbody><tr style="font-size:12px;">
+                <td class="text-center">
+                    <p class="m-0">Penyedia,</p>
+                    <p class="m-0">PT. KANAL SHOP SOLUTION</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:14px"><b><u>Omay Sunarti, Amd.Kom</u></b></p>
+                </td>
+                <td class="text-center">
+                    <p class="m-0">Pelaksana,</p>
+                    <p class="m-0">SDN KUTRUK I</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:14px"><b>(______________________)</b></p>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfbast() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target-bast');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('K11686749588050/1_BAST_SDN KUTRUK I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                            <div class="tab-pane fade" id="navs-justified-kwitansi" role="tabpanel">
+                                <style>
+    .kwitansi {
+        font-size: 18px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+        border: 1px solid black !important;
+    }
+
+    #doc-target-kwitansi {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer-kwitansi {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+
+    .parallelogram {
+        width: 200px;
+        height: 45px;
+        transform: skew(20deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        border: 2px solid black;
+        transform: skew(0deg);
+        margin-left: 10px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfkwitansi()">Download PDF</button>
+<div id="outer-kwitansi">
+    <div id="doc-target-kwitansi">
+        <table width="100%" class="table table-borderless kwitansi">
+            <tbody><tr>
+                <td colspan="3" style="font-size:14px;" align="center">
+                    <img src="assets/img/logo/kanal/Picture1.png" width="200"><br>
+                    Photocopy Digital Printing, ATK, Alat Olahraga &amp; Perlengkapan Sekolah <br>
+                    Jl. R.H. Komarudin Desa Tipar Raya, Kec. Jambe Kab. Tangerang Prov. Banten <br>
+                    Telp : 0819-0819-6493
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3" style="background-color: #ffc000;">
+                    <div class="p-0 text-dark" style="font-size:16px"><b>
+                            <u>KWITANSI</u> <br> No : K11686749588050/1                        </b>
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <table class="text-dark" width="100%" style="font-size:12px; color:black; font-style: italic;">
+                        <tbody><tr style="font-size:12px; color:black;">
+                            <td class="p-1">Sudah terima dari</td>
+                            <td class="p-1">:</td>
+                            <td class="p-1"><b>SDN KUTRUK I</b></td>
+                        </tr>
+                        <tr style="font-size:12px; color:black;">
+                            <td class="p-1">Uang Sejumlah</td>
+                            <td class="p-1">:</td>
+                            <td colspan="2"><b><i>Dua Ratus  Ribu Rupiah</i></b></td>
+                        </tr>
+                        <tr style="font-size:12px; color:black;">
+                            <td class="p-1">Untuk pembayaran</td>
+                            <td class="p-1">:</td>
+                            <td colspan="2"><b><i>FOTO COPY SOAL - UKK</i></b></td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="parallelogram">
+                        Rp 200,000                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+        <table width="100%" class="table table-borderless" style="font-size:12px; color: #000; font-weight:bold;">
+            <tbody><tr>
+                <td class="p-2" colspan="6"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" colspan="4">Mengetahui</td>
+                <td style="text-align: center;" colspan="2">Tangerang,..........................</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" colspan="2" class="p-0">Kepala Sekolah <br> SDN KUTRUK I</td>
+                <td style="text-align: center;" colspan="2" class="p-0">Bendahara</td>
+                <td style="text-align: center;" colspan="2" class="p-0">PT. KANAL SHOP SOLUTION</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" colspan="2">(_________________)</td>
+                <td style="text-align: center;" colspan="2">(_________________)</td>
+                <td style="text-align: center;" colspan="2"><u>Omay Sunarti, Amd.Kom</u></td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfkwitansi() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target-kwitansi');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('K11686749588050/1_KWITANSI_SDN KUTRUK I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                        </div>

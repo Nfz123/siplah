@@ -1,0 +1,882 @@
+<div class="tab-content">
+                            <div class="tab-pane fade" id="navs-justified-invoice" role="tabpanel">
+                                <style>
+    .invoice {
+        color: black;
+    }
+
+    table.invoice>tr>td {
+        border: 1px solid black !important;
+        padding: 2px;
+    }
+
+    #doc-target {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+        font-family: "Times New Roman", Times, serif;
+
+    }
+
+    #outer {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfinvoice()">Download PDF</button>
+<div id="outer">
+    <div id="doc-target">
+        <table width="100%" class="table table-borderless invoice">
+            <tbody><tr>
+                <td colspan="3" rowspan="4"><br>
+                    <img src="assets/img/logo/Picture1.jpg">
+                </td>
+                <td></td>
+                <td colspan="5" rowspan="4" align="right">
+                    <div style="position:relative;" align="right">
+                        <img src="assets/img/logo/Picture2.jpg">
+                    </div>
+                    <strong style="font-size: 14px;">PT. SIPLAH NET INDONESIA</strong><br>
+                    Kampung Solong RT 01 RW 01 Desa Tipar Kec. Jambe Kab. Tangerang - Banten <br>
+                    Telp : 087771699066 <br>
+                    NPWP : 53.450.985.6-451                </td>
+            </tr>
+            <tr>
+                <td colspan="6"></td>
+            </tr>
+            <tr>
+                <td colspan="6"></td>
+            </tr>
+            <tr>
+                <td colspan="6"></td>
+            </tr>
+
+            <tr style="background-color: #8eaadb; color:black;">
+                <td colspan="3" bgcolor="#8eaadb"> INVOICE</td>
+                <td bgcolor="#8eaadb"></td>
+                <td bgcolor="#8eaadb"></td>
+                <td colspan="4" bgcolor="#8eaadb">Invoice No : 1686468212277SNI</td>
+            </tr>
+            <tr>
+                <td colspan="4" class="p-1"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="p-0 ">Invoiced To :</td>
+                <td></td>
+                <td colspan="4"></td>
+                <td class="p-0">Tanggal</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="p-0">SDN JAMBE I</td>
+                <td></td>
+                <td colspan="4"></td>
+                <td class="p-0">11 Jun 2023</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="p-0">Kab. Tangerang - Banten</td>
+                <td></td>
+                <td></td>
+                <td colspan="4"></td>
+            </tr>
+
+
+        </tbody></table>
+
+        <table width="100%" style="margin-top:20px;" class="table table-bordered invoice">
+            <tbody><tr style="background-color: #8eaadb; color:black;">
+                <td bgcolor="#8eaadb">NO</td>
+                <td bgcolor="#8eaadb">Nama Barang / Jasa</td>
+                <td bgcolor="#8eaadb">Qty</td>
+                <td bgcolor="#8eaadb"> Satuan</td>
+                <td bgcolor="#8eaadb">Harga</td>
+                <td colspan="4" bgcolor="#8eaadb">Jumlah</td>
+            </tr>
+                            <tr>
+                    <td>1</td>
+                    <td>Laptop</td>
+                    <td>1</td>
+                    <td>Unit</td>
+                    <td>Rp 10,000,000</td>
+                    <td colspan="4"> Rp 10,000,000 </td>
+                </tr>
+                        <tr>
+
+                <td colspan="5" align="right">TOTAL</td>
+                <td colspan="4"> Rp 10,000,000 </td>
+
+            </tr>
+        </tbody></table>
+        <br>
+        <b>Transactions</b>
+        <table width="70%" style="border: solid 1px #000; font-size:13px;" class="invoice">
+            <tbody><tr style="background-color: #8eaadb; color:black; " class="text-center">
+                <td>Atas Nama Rekening</td>
+                <td>Nama Bank</td>
+                <td>No Rek</td>
+            </tr>
+            <tr class="text-center" style=" font-size:12px;">
+                <td>Siplah Net Indonesia</td>
+                <td>Bank Mandiri</td>
+                <td>176-00-0242541-9</td>
+            </tr>
+        </tbody></table>
+        <br>
+        <p class="text-danger p-0 m-0" style="font-size:12px; line-height: 5px;">* Transaksi antar bank dikenakan biaya transfer</p>
+        <p class="text-danger p-0 m-0" style="font-size:12px;">* Harga sudah termasuk PPN 11%</p>
+        <div class="invoice " style="font-weight: bold; font-size: 12px; text-align:right; margin:0px auto 0px auto;">
+            <p>Hormat Kami,</p>
+            <br>
+            <br>
+
+            <p>Dede Heriawan, S.Kom</p>
+        </div>
+    </div>
+</div>
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfinvoice() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('1686468212277SNI_INVOICE_SDN JAMBE I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                            <div class="tab-pane fade active show" id="navs-justified-spo" role="tabpanel">
+                                <style>
+    .spo {
+        font-size: 12px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+
+    table.spo>tr>td {
+        border: 1px solid black !important;
+        padding: 0px;
+    }
+
+    #doc-target-spo {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer-spo {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfspo()">Download PDF</button>
+<div id="outer-spo">
+    <div id="doc-target-spo">
+        <table width="100%" style="margin-bottom:20px;" class="text-dark spo">
+            <tbody><tr>
+                <td colspan="5" align="center">
+                    <img src="assets/img/logo.png"><br>
+                    <strong>
+                        <h4 class="p-0 m-0" style="color: #000;"><b>PT. SIPLAH NET INDONESIA</b></h4>
+                    </strong>
+                    <div style="color: #000;">Kampung Solong RT 01 RW 01 Desa Tipar Kec. Jambe Kab. Tangerang - Banten</div>
+                    <hr class="bg-dark">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="5" align="center">
+                    <strong>
+                        <u>
+                            <h6 class="p-0 m-0" style="font-size:14px; color:black;"><b>SURAT PENAWARAN</b></h6>
+                        </u>
+                    </strong>
+                    1686468212277SNI                </td>
+
+            </tr>
+            <tr>
+                <td style=" color:black">Tangerang, 27 May 2023</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="5" class="p-2"></td>
+            </tr>
+            <tr style=" color:black">
+                <td>Bersama ini kami SIPLAH NET INDONESIA menawarkan barang kepada : <strong>SDN JAMBE I</strong> <br> dengan perincian sebagai berikut :</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody></table>
+
+        <table width="100%" style="margin-bottom:20px; " class="table table-bordered spo">
+            <tbody><tr style="background-color: #8eaadb; color:black;">
+                <td bgcolor="#8eaadb">Nama Barang</td>
+                <td bgcolor="#8eaadb">Qty</td>
+                <td bgcolor="#8eaadb">Satuan</td>
+                <td bgcolor="#8eaadb">Harga</td>
+                <td bgcolor="#8eaadb">Jumlah</td>
+
+            </tr>
+                            <tr>
+
+                    <td>Laptop</td>
+                    <td>1</td>
+                    <td>Unit</td>
+                    <td>Rp 10,000,000</td>
+                    <td colspan="4"> Rp 10,000,000 </td>
+                </tr>
+                    </tbody></table>
+        <table width="100%" class="spo">
+            <tbody><tr style="font-size:12px; ">
+                <td>Jika Bapak/Ibu tertarik untuk mengetahui lebih jauh tentang produk yang kami tawarkan, dan ingin mengajukan pertanyaan, silahkan hubungi kami di nomor 087771699066 melalui Whatsapp ataupun telepon. <br> Atas perhatian dan kerjasamanya, kami mengucapkan terima kasih. </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody></table>
+        <div class="spo " style="font-weight: bold; font-size: 12px; text-align:right; margin:0px auto 0px auto;">
+            <p>Hormat Kami,</p>
+            <br>
+            <br>
+
+            <p>Dede Heriawan, S.Kom</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfspo() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target-spo');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('1686468212277SNI_SPO_SDN JAMBE I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                            <div class="tab-pane fade" id="navs-justified-spk" role="tabpanel">
+                                <style>
+    .spk {
+        font-size: 13px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    table.table-bordered {
+        border: 1px solid black !important;
+    }
+
+    table.table-bordered>thead>tr>th {
+        border: 1px solid black !important;
+
+    }
+
+    table.table-bordered>tbody>tr>td {
+        border: 1px solid black !important;
+        padding: 5px;
+    }
+
+
+    #doc-target-spk {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer-spk {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfspk()">Download PDF</button>
+<div id="outer-spk">
+    <div id="doc-target-spk">
+        <table width="100%" style="margin-bottom:20px; color:black;">
+            <tbody><tr>
+                <td colspan="4" align="center">
+                    <img src="assets/img/logo/logo3.png"><br>
+                    <strong>Kp. Solong 01/01 Ds Tiparaya Kec. Jambe Kab. Tangerang 15720 Banten, Indonesia</strong>
+                </td>
+            </tr>
+        </tbody></table>
+        <table width="100%" style=" color:black;" class="table table-bordered spk">
+            <tbody><tr>
+                <td rowspan="3" align="center" style="font-size:15px;"><strong>Surat Pemesanan</strong></td>
+                <td colspan="3" align="center"><strong>Nama Sekolah</strong></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center"><strong>SDN JAMBE I</strong></td>
+            </tr>
+            <tr>
+
+                <td>Nomor Pesanan : </td>
+                <td colspan="2">1686468212277SNI</td>
+
+            </tr>
+            <tr>
+                <td>Tanggal Pesanan</td>
+                <td colspan="3">
+                    01 June 2023
+                </td>
+
+            </tr>
+            <tr>
+                <td>Waktu Pelaksanaan Pekerjaan </td>
+                <td colspan="3">
+                    02 June 2023                </td>
+            </tr>
+            <tr>
+                <td>Penyelesaian Pekerjaan</td>
+                <td colspan="3">
+                    03 June 2023                </td>
+            </tr>
+            <tr>
+                <td>Nama Pekerjaan:</td>
+                <td colspan="3">: Kegiatan jual beli </td>
+
+            </tr>
+            <tr>
+                <td>Pelaksana Pekerjaan </td>
+                <td colspan="3">: PT. SIPLAH NET INDONESIA</td>
+            </tr>
+            <tr>
+                <td>Penyetoran Pajak </td>
+                <td colspan="3">: Disetor oleh Penjual</td>
+            </tr>
+            <tr>
+                <td>NPWP</td>
+                <td colspan="3">: 53.450.985.6-451</td>
+            </tr>
+            <tr>
+                <td colspan="4" align="center"><strong>
+                        <h5 style="color:#000;"><u>Rincian Pekerjaan</u></h5>
+                    </strong></td>
+            </tr>
+        </tbody></table>
+
+        <table width="100%" style="margin-bottom:20px; " class="table table-bordered spk">
+            <tbody><tr style="background-color: #8eaadb; color:black;">
+                <td>Nama Barang</td>
+                <td>Qty</td>
+                <td>Satuan</td>
+                <td>Jumlah</td>
+            </tr>
+                            <tr>
+                    <td>Laptop</td>
+                    <td>1</td>
+                    <td>Unit</td>
+                    <td colspan="4"> Rp 10,000,000 </td>
+                </tr>
+            
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Sub Total</td>
+                <td> Rp- </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Biaya Kirim</td>
+                <td> Rp- </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Asuransi</td>
+                <td> Rp- </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Total Pembayaran</td>
+                <td> Rp- </td>
+            </tr>
+        </tbody></table>
+        <table width="100%" class="spo">
+            <tbody><tr style="font-size:12px; ">
+                <td><b>INSTRUKSI KE PENYEDIA : </b> <br> Penagihan hanya dapat dilakukan setelah penyelesaian pekerjaan yang diperintahkan dalam SPK ini dan dibuktikan dengan Berita Acara Serah Terima </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody></table>
+        <table width="100%" class="spo mt-2">
+            <tbody><tr style="font-size:12px;">
+                <td class="text-center">
+                    <p class="m-0">Penyedia,</p>
+                    <p class="m-0">PT. SIPLAH NET INDONESIA</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:14px"><b><u>Dede Heriawan, S.Kom</u></b></p>
+                </td>
+                <td class="text-center">
+                    <p class="m-0">Pelaksana,</p>
+                    <p class="m-0">SDN JAMBE I</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:14px"><b>______________________</b></p>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfspk() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target-spk');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('1686468212277SNI_SPO_SDN JAMBE I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                            <div class="tab-pane fade" id="navs-justified-bast" role="tabpanel">
+                                <style>
+    table {
+        font-size: 13px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    table.table-bordered {
+        border: 1px solid black !important;
+        padding: 5px;
+    }
+
+    table.table-bordered>tr>th {
+        border: 1px solid black !important;
+        padding: 5px;
+
+    }
+
+    table.table-bordered>tr>td {
+        border: 1px solid black !important;
+        padding: 5px;
+    }
+
+    #doc-target-bast {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer-bast {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfbast()">Download PDF</button>
+<div id="outer-bast">
+    <div id="doc-target-bast">
+        <table class="">
+            <tbody><tr>
+                <td colspan="6" align="center">
+                    <img src="assets/img/logo.png"><br>
+                    <strong>
+                        <h4 class="p-0 m-0" style="color:black;"><b>PT. SIPLAH NET INDONESIA</b></h4>
+                    </strong>
+                    <div style="color: black;">Kampung Solong RT 01 RW 01 Desa Tipar Kec. Jambe Kab. Tangerang - Banten</div>
+                    <hr class="bg-dark py-0 my-2">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" align="center">
+                    <strong>
+                        <h5 style="color:#000;"><b><u>BERITA ACARA SERAH TERIMA</u></b></h5>
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="py-1">Pada hari ini</td>
+                <td>:</td>
+                <td>
+                    Tuesday, 06 June 2023                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="py-1">Sesuai dengan No. Pesanan yang diterbitkan oleh sekolah</td>
+                <td>:</td>
+                <td>1686468212277SNI</td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    Yang bertanggung jawab di bawah ini :
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" class="p-2">
+                </td>
+            </tr>
+            <tr>
+                <td width="141" class="py-1">Nama</td>
+                <td width="3">:</td>
+                <td width="929" colspan="3">Dede Heriawan</td>
+            </tr>
+            <tr>
+                <td width="141" class="py-1">Jabatan</td>
+                <td width="3">:</td>
+                <td width="929" colspan="3">Direktur Bisnis</td>
+            </tr>
+            <tr>
+                <td colspan="6" class="p-2">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <div style="font-size: 12px; color:#000;">Menyerahkan hasil pekerjaan jual-beli kepada Sekolah dan telah menerima hasil pekerjaan dalam jumlah yang lengkap dan kondisi yang baik sesuai dengan rincian berikut : </div>
+                </td>
+            </tr>
+        </tbody></table>
+
+        <table class="table table-bordered">
+            <tbody><tr style="background-color: #8eaadb; color:black;" class="text-dark" align="center">
+                <td scope="col">Nama Barang</td>
+                <td scope="col">Qty</td>
+                <td scope="col">Satuan</td>
+                <td scope="col">Harga</td>
+                <td scope="col">Kondisi</td>
+            </tr>
+                            <tr style="color:black;">
+                    <td>Laptop</td>
+                    <td>1</td>
+                    <td>Unit</td>
+                    <td> Rp 10,000,000 </td>
+                    <td>BAIK</td>
+                </tr>
+                    </tbody></table>
+
+        <table class="">
+            <tbody><tr>
+                <td colspan="6">
+                    <div style="font-size: 12px; color: #000;" class="my-1"><i><b>Foto Barang : Terlampir</b></i></div>
+                    Berita Acara Serah Terima ini berfungsi sebagai bukti serah terima hasil pekerjaan kepada Sekolah untuk selanjutnya dicatat pada buku penerimaan barang <br> <br>
+                    Demikian Berita Acara Serah Terima ini dibuat dengan sebenarnya untuk dipergunakan sebagaimana seharusnya
+                </td>
+            </tr>
+        </tbody></table>
+        <table width="100%" class="spo mt-2">
+            <tbody><tr style="font-size:12px;">
+                <td class="text-center">
+                    <p class="m-0">Penyedia,</p>
+                    <p class="m-0">PT. SIPLAH NET INDONESIA</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:14px"><b><u>Dede Heriawan, S.Kom</u></b></p>
+                </td>
+                <td class="text-center">
+                    <p class="m-0">Pelaksana,</p>
+                    <p class="m-0">SDN JAMBE I</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="font-size:14px"><b>______________________</b></p>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfbast() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target-bast');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('1686468212277SNI_BAST_SDN JAMBE I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                            <div class="tab-pane fade" id="navs-justified-kwitansi" role="tabpanel">
+                                <style>
+    .kwitansi {
+        font-size: 18px;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    table.table-bordered {
+        border: 1px solid black !important;
+    }
+
+    table.table-bordered>tr>th {
+        border: 1px solid black !important;
+
+    }
+
+    table.table-bordered>tr>td {
+        border: 1px solid black !important;
+        padding: 2px;
+    }
+
+    #doc-target-kwitansi {
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        color: #000;
+        line-height: 1.6em;
+        margin: 0 auto;
+    }
+
+    #outer-kwitansi {
+        padding: 15pt 15pt 15pt 15pt;
+        border: 1px solid #000;
+        margin: 0 auto;
+        width: 720px;
+    }
+
+    .parallelogram {
+        width: 200px;
+        height: 45px;
+        transform: skew(20deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        border: 2px solid black;
+        transform: skew(0deg);
+        margin-left: 10px;
+    }
+</style>
+<button class="btn btn-sm btn-danger mb-3" onclick="generatePdfkwitansi()">Download PDF</button>
+<div id="outer-kwitansi">
+    <div id="doc-target-kwitansi">
+        <table width="100%" class="table table-borderless kwitansi">
+            <tbody><tr>
+                <td colspan="2" rowspan="2">
+                    <img src="assets/img/logo.png">
+                </td>
+                <td style="font-size:14px;" colspan="3">
+                    <div style="font-size: 16px; color: #000;"><b>
+                            PT. SIPLAH NET INDONESIA                        </b>
+                    </div>
+                    Kampung Solong RT 01 RW 01 Desa Tipar Kec. Jambe Kab. Tangerang <br> Telepon : 08777 16 99 0 66 Email : siplahnet@gmail.com
+                </td>
+
+            </tr>
+            <tr>
+                <td align="center">
+                    <p class="p-0 m-0" style="color: #000; font-size: 20px;"><b>K W I T A N S I</b></p>
+                    <p class="p-0 m-0" style="color: #000; font-size: 12px;"><b>No : 1686468212277SNI</b></p>
+                </td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            <tr style="border: 1px solid #000;">
+                <td width="28%"><i>Telah terima dari</i></td>
+                <td width="1%">:</td>
+                <td width="67%" colspan="3"><i>SDN JAMBE I</i></td>
+            </tr>
+            <tr style="border: 1px solid #000;">
+                <td><i>Uang sejumlah</i></td>
+                <td>:</td>
+                <td colspan="3"><i>Sepuluh Juta Rupiah</i></td>
+            </tr>
+            <tr style="border: 1px solid #000;">
+                <td><i>Pembayaran untuk</i></td>
+                <td>:</td>
+                <td colspan="3"><i>ATK</i></td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="parallelogram">
+                        Rp 10,000,000                    </div>
+                </td>
+            </tr>
+
+        </tbody></table>
+        <table width="100%" class="table table-borderless" style="font-size:12px; color: #000; font-weight:bold;">
+            <tbody><tr>
+                <td class="p-2" colspan="6"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" colspan="4">Mengetahui</td>
+                <td style="text-align: center;" colspan="2">Tangerang,..........................</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" colspan="2" class="p-0">Kepala Sekolah <br> SDN JAMBE I</td>
+                <td style="text-align: center;" colspan="2" class="p-0">Bendahara</td>
+                <td style="text-align: center;" colspan="2" class="p-0">PT. SIPLAH NET INDONESIA</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" colspan="2">_________________</td>
+                <td style="text-align: center;" colspan="2">_________________</td>
+                <td style="text-align: center;" colspan="2"><u>Dede Heriawan, S.Kom</u></td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    // https://html2canvas.hertzen.com/configuration
+    // https://rawgit.com/MrRio/jsPDF/master/docs/module-html.html#~html
+    // https://artskydj.github.io/jsPDF/docs/jsPDF.html
+    window.jsPDF = window.jspdf.jsPDF;
+
+    function generatePdfkwitansi() {
+        let jsPdf = new jsPDF('p', 'pt', 'A4');
+        var htmlElement = document.getElementById('doc-target-kwitansi');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function(jsPdf) {
+                jsPdf.save('1686468212277SNI_KWITANSI_SDN JAMBE I.pdf');
+                // to open the generated PDF in browser window
+                // window.open(jsPdf.output('bloburl'));
+            },
+            margin: [15, 15, 15, 30],
+            autoPaging: 'text',
+            html2canvas: {
+                allowTaint: true,
+                dpi: 300,
+                letterRendering: true,
+                logging: false,
+                scale: .8
+            }
+        };
+
+        jsPdf.html(htmlElement, opt);
+    }
+</script>                            </div>
+                        </div>

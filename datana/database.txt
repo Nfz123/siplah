@@ -1,0 +1,6 @@
+sipl1483_siplahdummy
+sipahdummy
+database
+siplahDumi1!
+sipl1483_siplahdummiuser
+silakan ke cpanel > ke menu MultiPHP manager > klik centang pada siplah.net > ganti ke PHP 8.1 atau lebih tinggi
