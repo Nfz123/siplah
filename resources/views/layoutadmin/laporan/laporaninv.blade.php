@@ -34,7 +34,7 @@
                     <tbody>
                         <tr>
                             <td colspan="3" rowspan="4"><br>
-                                <img src="{{ URL::asset($transaksi->perusahaan->slash) }}" width="80"><br>
+                                <img src="{{ url(Storage::url($transaksi->Perusahaan->slash)) }}" width="80"><br>
                             </td>
                             <td></td>
                             <td colspan="5" rowspan="4" align="right">

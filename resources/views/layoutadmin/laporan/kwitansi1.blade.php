@@ -49,7 +49,7 @@
                     <table width="100%" class="table table-borderless kwitansi">
                         <tbody><tr>
                             <td colspan="2" rowspan="2">
-                                <img src="{{ URL::asset($transaksi->perusahaan->slash)}}" width="160">
+                                <img src="{{ url(Storage::url($transaksi->Perusahaan->slash)) }}" width="160">
                             </td>
                             <td style="font-size:14px;" colspan="3">
                                 <div style="font-size: 16px; color: #000;"><b>

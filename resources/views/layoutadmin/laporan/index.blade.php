@@ -42,7 +42,7 @@
                 @foreach ($trans->sekolah1 as $sk)
                   <tr>
                     <td>{{ $sk->autonumber }}</td>
-                    <td><a href="/laporaninvoice">
+                    <td><a href="laporaninvoice">
                       {{$sk->namasekolah}}</a></td>
                     <td>@if ($sk->transaksi == NULL)
                         

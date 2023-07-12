@@ -106,7 +106,7 @@
                     <tbody>
                         <tr>
                             <td colspan="5" align="center" style="padding-bottom: 1px;">
-                                <img src="{{ URL::asset($transaksi->perusahaan->slash) }}" width="80" style="padding-bottom: 1px;"><br>
+                                <img src="{{ url(Storage::url($transaksi->Perusahaan->slash)) }}" width="80" style="padding-bottom: 1px;"><br>
                                 <strong>
                                     <h4 class="p-0 m-0" style="color: #000;"><b>
                                             {{ $transaksi->perusahaan->namaperusahaan }}</b></h4>
