@@ -56,12 +56,12 @@
           <span>Laporan</span>
         </a>
       </li><!-- End Profile Page Nav -->
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="/laporantab">
           <i class="bi bi-person"></i>
           <span>Laporan Invoice</span>
         </a>
-      </li><!-- End Profile Page Nav -->
+      </li><!-- End Profile Page Nav --> --}}
       <li class="nav-heading">E Commerce</li>
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
