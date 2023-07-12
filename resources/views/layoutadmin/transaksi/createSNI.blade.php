@@ -118,49 +118,33 @@
                                                 <tbody id="transaksi-detil-container">
                                                     <tr>
                                                         <td>
-                                                            <input type="text" name="kodekategori[]" class="form-control" id="number" required>
+                                                            <input type="text" name="kodekategori[]" class="form-control"
+                                                                id="number" required>
                                                         </td>
                                                         <td>
-                                                            <input type="text" name="namakategori[]" class="form-control" id="kategori" required>
+                                                            <input type="text" name="namakategori[]" class="form-control"
+                                                                id="kategori" required>
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="qty[]" class="form-control" required>
+                                                            <input type="number" name="qty[]" class="form-control"
+                                                                required>
                                                         </td>
                                                         <td>
-                                                            <input type="text" name="satuan[]" class="form-control" id="satuan" required>
+                                                            <input type="text" name="satuan[]" class="form-control"
+                                                                id="satuan" required>
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="harga[]" class="form-control" required>
+                                                            <input type="number" name="harga[]" class="form-control"
+                                                                required>
                                                         </td>
                                                         <td>
-                                                            <a class="btn btn-outline-secondary btn-sm" style="text-transform: uppercase" type="button"
-                                                                id="button-addon2-1" data-toggle="modal" data-target="#modal-ketua"><i class="fas fa-search"></i></a>
+                                                            <a class="btn btn-outline-secondary btn-sm"
+                                                                style="text-transform:uppercase" type="button"
+                                                                id="button-addon2-1" data-toggle="modal"
+                                                                data-target="#modal-ketua"><i class="fas fa-search"></i></a>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <input type="text" name="kodekategori[]" class="form-control" id="number" required>
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" name="namakategori[]" class="form-control" id="kategori" required>
-                                                        </td>
-                                                        <td>
-                                                            <input type="number" name="qty[]" class="form-control" required>
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" name="satuan[]" class="form-control" id="satuan" required>
-                                                        </td>
-                                                        <td>
-                                                            <input type="number" name="harga[]" class="form-control" required>
-                                                        </td>
-                                                        <td>
-                                                            <a class="btn btn-outline-secondary btn-sm" style="text-transform: uppercase" type="button"
-                                                                id="button-addon2-2" data-toggle="modal" data-target="#modal-ketua"><i class="fas fa-search"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                    <!-- Add more rows as needed -->
                                                 </tbody>
-                                                
                                             </table>
 
                                             <button type="button" id="add-transaksi-detil" class="btn btn-primary">Tambah
